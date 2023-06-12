@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "986671529020",
+    "project_id": "petner-a5bcf",
+    "storage_bucket": "petner-a5bcf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986671529020:android:dd03f1be861a5f968e5739",
+        "android_client_info": {
+          "package_name": "com.jaino.petner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "986671529020-i46fhm55s9h3j8sfdhro2jrfdbrib0eo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jaino.petner",
+            "certificate_hash": "bd20aa69d65c307c64c94600984ca19d869f40d0"
+          }
+        },
+        {
+          "client_id": "986671529020-jmm183hb8cl61v25c222mhl9i59rfju7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWluqGHg1MbAZo9wOUWpO_sxiANhNgQfQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "986671529020-jmm183hb8cl61v25c222mhl9i59rfju7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
