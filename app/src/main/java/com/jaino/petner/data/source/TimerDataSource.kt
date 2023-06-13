@@ -1,5 +1,7 @@
 package com.jaino.petner.data.source
 
+import com.jaino.petner.data.dto.ScheduleDto
+
 interface TimerDataSource {
-    suspend fun setFeedTime(time: String): Result<Unit>
+    suspend fun setFeedTime(schedule: ScheduleDto): Result<Unit>
 }

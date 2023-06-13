@@ -1,5 +1,5 @@
 package com.jaino.petner.domain
 
 interface TimerRepository {
-    suspend fun setFeedTime(time : String): Result<Unit>
+    suspend fun setFeedTime(time : String, count: Int): Result<Unit>
 }
