@@ -25,4 +25,14 @@ class TimerDataSourceImpl @Inject constructor(
                 Result.failure<Unit>(it)
             }
         }
+
+    override suspend fun getFeedTime(): Result<List<ScheduleDto>> =
+        withContext(coroutineDispatcher){
+            runCatching {
+                fireStore.collection(DB_TIMER).get().await().toObjects(ScheduleDto::class.java)
+            }
+        }.onFailure {
+            it.printStackTrace()
+            Result.failure<ScheduleDto>(it)
+        }
 }
