@@ -18,6 +18,7 @@ import com.jaino.petner.presentation.utils.UiEvent
 import com.jaino.petner.presentation.utils.UiState
 import com.jaino.petner.presentation.utils.showToast
 import com.jaino.petner.presentation.viewmodel.home.HomeViewModel
+import com.jaino.petner.presentation.widget.WaterProvideDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -54,6 +55,12 @@ class HomeFragment: Fragment() {
     private fun initButton(){
         binding.button.setOnClickListener {
             navigateToSchedule()
+        }
+
+        binding.provideWaterButton.setOnClickListener {
+            WaterProvideDialog(
+                requireContext()
+            ).show()
         }
     }
 

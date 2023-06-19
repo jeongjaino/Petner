@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jaino.petner.domain.TimerRepository
 import com.jaino.petner.domain.model.Schedule
-import com.jaino.petner.domain.model.Weight
 import com.jaino.petner.presentation.utils.UiEvent
 import com.jaino.petner.presentation.utils.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -45,7 +44,7 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
             repository.getWeight()
                 .onSuccess {
-                    val weight = Math.abs(it.weight)
+                    val weight = Math.abs(it.water)
                     if(weight > 5000){
                         _weightUiState.value = ENOUGH
                     }
@@ -64,7 +63,7 @@ class HomeViewModel @Inject constructor(
 
     companion object{
         const val ENOUGH = "충분"
-        const val NORMAL = "충분"
+        const val NORMAL = "적당"
         const val LACK = "부족"
 
     }

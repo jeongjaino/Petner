@@ -70,4 +70,7 @@ dependencies {
     // Dagger Hilt
     implementation "com.google.dagger:hilt-android:$dagger_version"
     kapt "com.google.dagger:hilt-compiler:$dagger_version"
+
+    //lottie
+    implementation "com.airbnb.android:lottie:6.0.0"
 }
