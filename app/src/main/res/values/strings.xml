@@ -5,7 +5,11 @@
     <string name="feed_count_title">총 배급량</string>
     <string name="feed_time_title">배급 시간</string>
     <string name="save">저장</string>
-    <string name="home_amount_content">%d 회</string>
-    <string name="home_amount_title">배급량 </string>
-    <string name="home_time_title">배급 시간</string>
+    <string name="item_amount_content">%d 회</string>
+    <string name="item_amount_title">배급량 </string>
+    <string name="item_time_title">배급 시간</string>
+    <string name="home_plan_title">배급 계획</string>
+    <string name="home_amount_title">남은 물의 용량</string>
+    <string name="home_amount_content">현재 물의 용량은 %s입니다.</string>
+    <string name="home_provide_water">물 공급하기</string>
 </resources>

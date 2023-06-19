@@ -39,6 +39,7 @@ class HomeFragment: Fragment() {
     ): View? {
         _binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container,false)
         binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewModel
         return binding.root
     }
 
@@ -58,6 +59,7 @@ class HomeFragment: Fragment() {
 
     private fun initViewModelStates(){
         viewModel.getScheduleList()
+        viewModel.getWeight()
     }
 
     private fun observeData(){
