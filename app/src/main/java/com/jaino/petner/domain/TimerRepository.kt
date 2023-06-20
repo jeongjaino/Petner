@@ -9,4 +9,6 @@ interface TimerRepository {
     suspend fun getFeedTime(): Result<List<Schedule>>
 
     suspend fun getWeight(): Result<Weight>
+
+    suspend fun setRunPump(): Result<Unit>
 }

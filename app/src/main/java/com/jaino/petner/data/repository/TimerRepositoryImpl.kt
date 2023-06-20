@@ -18,4 +18,7 @@ class TimerRepositoryImpl @Inject constructor(
 
     override suspend fun getWeight(): Result<Weight> =
         dataSource.getWeight().mapCatching { it.toWeight() }
+
+    override suspend fun setRunPump(): Result<Unit> =
+        dataSource.setRunPump()
 }

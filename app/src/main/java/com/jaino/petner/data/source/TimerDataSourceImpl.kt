@@ -2,10 +2,7 @@ package com.jaino.petner.data.source
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import com.jaino.petner.data.const.DB_PETNER
-import com.jaino.petner.data.const.DB_TIMER
-import com.jaino.petner.data.const.DOC_FEED
-import com.jaino.petner.data.const.DOC_WEIGHT
+import com.jaino.petner.data.const.*
 import com.jaino.petner.data.dto.ScheduleDto
 import com.jaino.petner.data.dto.WeightDto
 import com.jaino.petner.data.util.await
@@ -21,8 +18,7 @@ class TimerDataSourceImpl @Inject constructor(
     override suspend fun setFeedTime(schedule: ScheduleDto): Result<Unit> =
         withContext(coroutineDispatcher){
             runCatching {
-                fireStore.collection(DB_TIMER).add(schedule).await()
-                Unit
+                val data = fireStore.collection(DB_TIMER).add(schedule).await()
             }.onFailure {
                 it.printStackTrace()
                 Result.failure<Unit>(it)
@@ -48,6 +44,19 @@ class TimerDataSourceImpl @Inject constructor(
             }.onFailure {
                 it.printStackTrace()
                 Result.failure<WeightDto>(it)
+            }
+        }
+
+    override suspend fun setRunPump(): Result<Unit> =
+        withContext(coroutineDispatcher){
+            runCatching {
+                val data = fireStore.collection(DB_PETNER).document(DOC_SWITCH).set(
+                    mapOf("runPump" to true),
+                    SetOptions.merge()
+                )
+            }.onFailure {
+                it.printStackTrace()
+                Result.failure<Unit>(it)
             }
         }
 }

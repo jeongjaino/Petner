@@ -56,12 +56,6 @@ class HomeFragment: Fragment() {
         binding.button.setOnClickListener {
             navigateToSchedule()
         }
-
-        binding.provideWaterButton.setOnClickListener {
-            WaterProvideDialog(
-                requireContext()
-            ).show()
-        }
     }
 
     private fun initViewModelStates(){
@@ -74,10 +68,12 @@ class HomeFragment: Fragment() {
             .onEach {
                 when(it){
                     is UiEvent.Failure -> {
-                        requireContext().showToast("계획을 불어오는데 실패하였습니다.")
+                        requireContext().showToast(it.error.message.toString())
                     }
 
-                    is UiEvent.Success -> {}
+                    is UiEvent.Success -> { // 펌프 성공
+                        showDialog()
+                    }
                 }
             }.launchIn(viewLifecycleOwner.lifecycleScope)
 
@@ -100,6 +96,12 @@ class HomeFragment: Fragment() {
         adapter = HomeAdapter()
         binding.homeRecyclerView.adapter = adapter
         binding.homeRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+    }
+
+    private fun showDialog(){
+        WaterProvideDialog(
+            requireContext()
+        ).show()
     }
 
     private fun navigateToSchedule(){

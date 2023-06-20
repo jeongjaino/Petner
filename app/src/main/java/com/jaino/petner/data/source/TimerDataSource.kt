@@ -9,4 +9,6 @@ interface TimerDataSource {
     suspend fun getFeedTime(): Result<List<ScheduleDto>>
 
     suspend fun getWeight(): Result<WeightDto>
+
+    suspend fun setRunPump(): Result<Unit>
 }

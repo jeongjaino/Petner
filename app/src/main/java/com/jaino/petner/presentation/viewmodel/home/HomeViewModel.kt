@@ -61,10 +61,21 @@ class HomeViewModel @Inject constructor(
         }
     }
 
+    fun setRunPump(){
+        viewModelScope.launch {
+            repository.setRunPump()
+                .onSuccess {
+                    _homeUiEvent.emit(UiEvent.Success(Unit))
+                }
+                .onFailure {
+                    _homeUiEvent.emit(UiEvent.Failure(it))
+                }
+        }
+    }
+
     companion object{
         const val ENOUGH = "충분"
         const val NORMAL = "적당"
         const val LACK = "부족"
-
     }
 }
